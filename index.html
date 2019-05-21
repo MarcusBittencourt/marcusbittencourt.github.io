@@ -3,8 +3,15 @@ Bem vindo as minhas notas de desenvolvimento!
 
 Artigo 1 - Ambiente de big data no Centos 7
 
+Compilação 
+-----------------------------------------------------------------------------------------------------------
 Pré requisitos 1.8
 $ yum install autoconf automake libtool unzip gcc-c++ git
+
+Node v6.16.0
+$ yum install node
+$ node --version
+v6.16.0
 
 Java OpenJDK 1.8
 $ sudo yum install java-1.8.0-openjdk-devel
@@ -38,6 +45,16 @@ $ make install
 $ protoc --version
 libprotoc 2.5.0
 
+Tez 0.9.2
+$ mkdir /opt/tez
+$ wget http://mirror.nbtelecom.com.br/apache/tez/0.9.2/apache-tez-0.9.2-src.tar.gz
+$ tar zxvf apache-tez-0.9.2-src.tar.gz --directory=/opt/tez --strip 1
+# Alterar hadoop.version no pom.xml para a versão instalada do hadoop, nesse caso 3.1.2
+$ mvn clean package 
+
+Instalação
+-----------------------------------------------------------------------------------------------------------
+
 Mysql 5.7.26 
 $ msyql --version
 $ msyql -u root -p 
@@ -49,13 +66,6 @@ $ wget
 $ 
 $
 
-Tez 0.9.2
-$ mkdir /opt/tez
-$ wget http://mirror.nbtelecom.com.br/apache/tez/0.9.2/apache-tez-0.9.2-src.tar.gz
-$ tar zxvf apache-tez-0.9.2-src.tar.gz --directory=/opt/tez --strip 1
-# Alterar hadoop.version no pom.xml para a versão instalada do hadoop, nesse caso 3.1.2
-$ mvn clean package 
-
 Hive 3.1.1
 $ mkdir /opt/hive
 $ wget 
@@ -64,12 +74,10 @@ $
 Sqoop 1.4.7
 $ mkdir /opt/sqoop
 $ wget http://ftp.unicamp.br/pub/apache/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
-$ $ tar zxvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz --directory=/opt/sqoop --strip 1
+$ tar zxvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz --directory=/opt/sqoop --strip 1
 $ 
 $ sqoop version
 Sqoop 1.4.7
 git commit id 2328971411f57f0cb683dfb79d19d4d19d185dd8
 Compiled by maugli on Thu Dec 21 15:59:58 STD 2017
-
-
 
