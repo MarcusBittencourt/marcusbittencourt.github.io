@@ -50,6 +50,7 @@ $ mkdir /opt/tez
 $ wget http://mirror.nbtelecom.com.br/apache/tez/0.9.2/apache-tez-0.9.2-src.tar.gz
 $ tar zxvf apache-tez-0.9.2-src.tar.gz --directory=/opt/tez --strip 1
 # Alterar hadoop.version no pom.xml para a versão instalada do hadoop, nesse caso 3.1.2
+$ npm install yarn -g
 $ mvn clean package -DskipTests=true -Dmaven.javadoc.skip=true -Phadoop28 -Dhadoop.version=3.1.2
 
 Instalação
