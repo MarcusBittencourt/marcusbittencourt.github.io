@@ -9,16 +9,19 @@ Summary: Setting up big data environment on Centos 7
 # Compiling Tez 0.9.2 for Hadoop 3.1.2
 
 *Utils*
-	:::bash
-	$ yum install autoconf automake libtool unzip gcc-c++ git
+
+    :::bash
+    $ yum install autoconf automake libtool unzip gcc-c++ git
 
 *Node v6.16.0*
+
 	:::bash
 	$ yum install node
 	$ node --version
 	v6.16.0
 
 *Java OpenJDK 1.8*
+
 	:::bash
 	$ sudo yum install java-1.8.0-openjdk-devel
 	$ export JAVA_HOME=/usr/lib/jvm
@@ -26,6 +29,7 @@ Summary: Setting up big data environment on Centos 7
 	$ source ~/.bashrc
 
 *Maven 3.6.1* 
+
 	:::bash
 	$ mkdir /opt/maven
 	$ wget http://ftp.unicamp.br/pub/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
@@ -41,6 +45,7 @@ Summary: Setting up big data environment on Centos 7
 	OS name: "linux", version: "3.10.0-957.10.1.el7.x86_64", arch: "amd64", family: "unix"
 
 *Protobuf 2.5.0*
+
 	:::bash
 	$ mkdir /opt/protobuf
 	$ wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
@@ -54,6 +59,7 @@ Summary: Setting up big data environment on Centos 7
 	libprotoc 2.5.0
 
 *Tez 0.9.2*
+
 	:::bash
 	$ mkdir /opt/tez
 	$ wget http://mirror.nbtelecom.com.br/apache/tez/0.9.2/apache-tez-0.9.2-src.tar.gz
@@ -65,6 +71,7 @@ Summary: Setting up big data environment on Centos 7
 # Install big data environment with hadoop 3.1.2 and tez 0.9.2
 
 *Hadoop 3.2.1*
+
 	:::bash
 	$ mkdir /opt/hadoop
 	$ wget 
@@ -74,12 +81,14 @@ Summary: Setting up big data environment on Centos 7
 # Install and configure hive 3.1.1 on tez 0.9.2
 
 *Mysql 5.7.26* 
+
 	:::bash
 	$ msyql --version
 	$ msyql -u root -p 
 	mysql> create database metastore; 
 
 *Hive 3.1.1*
+
 	:::bash
 	$ mkdir /opt/hive
 	$ wget https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
@@ -88,6 +97,7 @@ Summary: Setting up big data environment on Centos 7
 Install and configure sqoop
 
 *Sqoop 1.4.7*
+
 	:::bash
 	$ mkdir /opt/sqoop
 	$ wget http://ftp.unicamp.br/pub/apache/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
