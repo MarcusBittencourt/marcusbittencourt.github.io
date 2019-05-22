@@ -22,12 +22,11 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+         ('Jinja2', 'http://jinja.pocoo.org/'),)
 
 # Social widget
 SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/marcus-bittencourt-76a9a2b6/'),
-          ('Another social link', '#'),)
+          ('Github', 'https://github.com/MarcusBittencourt'),)
 
 DEFAULT_PAGINATION = 20
 
