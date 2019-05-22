@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
         <meta charset="utf-8" />
-        <title>devnotes - hive</title>
+        <title>Hive merge query for History strategy</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -10,14 +10,19 @@
         <header id="banner" class="body">
                 <h1><a href="/">devnotes </a></h1>
                 <nav><ul>
-                    <li><a href="/category/data-engineering.html">Data Engineering</a></li>
+                    <li class="active"><a href="/category/data-engineering.html">Data Engineering</a></li>
                     <li><a href="/category/data-science.html">Data Science</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/hive-merge-history-strategy.html" rel="bookmark"
+           title="Permalink to Hive merge query for History strategy">Hive merge query for History strategy</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/hive-merge-history-strategy.html">Hive merge query for History strategy</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-05-22T11:11:00-03:00">
                 Published: qua 22 maio 2019
@@ -28,7 +33,7 @@
         </address>
 <p>In <a href="/category/data-engineering.html">Data Engineering</a>.</p>
 <p>tags: <a href="/tag/hive.html">hive</a> </p>
-</footer><!-- /.post-info --><h1>Hive merge query for History strategy</h1>
+</footer><!-- /.post-info -->      <h1>Hive merge query for History strategy</h1>
 <p>Create an external table for intermadiate updates from extracted data and load jobs</p>
 <div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">EXTERNAL</span> <span class="k">TABLE</span> <span class="n">staging</span><span class="p">.</span><span class="n">update_contributors</span> <span class="p">(</span>
     <span class="n">login</span> <span class="n">string</span><span class="p">,</span>
@@ -111,36 +116,11 @@
     <span class="n">updates</span><span class="p">.</span><span class="n">login</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">email</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idcentrocusto</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmcentrocusto</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idempresa</span><span class="p">,</span> 
     <span class="n">updates</span><span class="p">.</span><span class="n">nmempresa</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idunidade</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmunidade</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nucargahoraria</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmcargo</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmperfil</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">dtadmissao</span><span class="p">,</span> 
     <span class="n">updates</span><span class="p">.</span><span class="n">dtdemissao</span><span class="p">,</span> <span class="k">current_timestamp</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</pre></div>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/setting-up-big-data-env-centos.html" rel="bookmark"
-                           title="Permalink to Setting up big data environment on Centos 7">Setting up big data environment on Centos 7</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-05-22T09:22:00-03:00">
-                Published: qua 22 maio 2019
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/marcus-bittencourt.html">Marcus Bittencourt</a>
-        </address>
-<p>In <a href="/category/data-engineering.html">Data Engineering</a>.</p>
-<p>tags: <a href="/tag/hadoop.html">hadoop</a> <a href="/tag/tez.html">tez</a> <a href="/tag/hive.html">hive</a> </p>
-</footer><!-- /.post-info -->                <p>Setting up big data environment on Centos 7</p>
-                <a class="readmore" href="/setting-up-big-data-env-centos.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

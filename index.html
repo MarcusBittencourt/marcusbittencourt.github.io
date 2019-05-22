@@ -11,12 +11,103 @@
                 <h1><a href="/">devnotes </a></h1>
                 <nav><ul>
                     <li><a href="/category/data-engineering.html">Data Engineering</a></li>
+                    <li><a href="/category/data-science.html">Data Science</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/setting-up-big-data-env-centos.html">Setting up big data environment on Centos 7</a></h1>
+                    <h1 class="entry-title"><a href="/hikari-connection-with-sqlite.html">Hikari connection with SQLite</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-05-22T11:21:00-03:00">
+                Published: qua 22 maio 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/marcus-bittencourt.html">Marcus Bittencourt</a>
+        </address>
+<p>In <a href="/category/data-engineering.html">Data Engineering</a>.</p>
+<p>tags: <a href="/tag/hikari.html">hikari</a> <a href="/tag/sqlite.html">sqlite</a> </p>
+</footer><!-- /.post-info --><p>Example code (references https://www.baeldung.com/hikaricp)</p>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DataSource</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">HikariConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HikariConfig</span><span class="o">();</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">HikariDataSource</span> <span class="n">ds</span><span class="o">;</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">setJdbcUrl</span><span class="o">(</span> <span class="s">&quot;jdbc_url&quot;</span> <span class="o">);</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">setUsername</span><span class="o">(</span> <span class="s">&quot;database_username&quot;</span> <span class="o">);</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">setPassword</span><span class="o">(</span> <span class="s">&quot;database_password&quot;</span> <span class="o">);</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">addDataSourceProperty</span><span class="o">(</span> <span class="s">&quot;cachePrepStmts&quot;</span> <span class="o">,</span> <span class="s">&quot;true&quot;</span> <span class="o">);</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">addDataSourceProperty</span><span class="o">(</span> <span class="s">&quot;prepStmtCacheSize&quot;</span> <span class="o">,</span> <span class="s">&quot;250&quot;</span> <span class="o">);</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">addDataSourceProperty</span><span class="o">(</span> <span class="s">&quot;prepStmtCacheSqlLimit&quot;</span> <span class="o">,</span> <span class="s">&quot;2048&quot;</span> <span class="o">);</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HikariDataSource</span><span class="o">(</span> <span class="n">config</span> <span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="nf">DataSource</span><span class="o">()</span> <span class="o">{}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Connection</span> <span class="nf">getConnection</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">SQLException</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="na">getConnection</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/hive-merge-history-strategy.html" rel="bookmark"
+                           title="Permalink to Hive merge query for History strategy">Hive merge query for History strategy</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-05-22T11:11:00-03:00">
+                Published: qua 22 maio 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/marcus-bittencourt.html">Marcus Bittencourt</a>
+        </address>
+<p>In <a href="/category/data-engineering.html">Data Engineering</a>.</p>
+<p>tags: <a href="/tag/hive.html">hive</a> </p>
+</footer><!-- /.post-info -->                <p>Hive merge query for History strategy</p>
+                <a class="readmore" href="/hive-merge-history-strategy.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/r-plots.html" rel="bookmark"
+                           title="Permalink to R plots">R plots</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-05-22T09:22:00-03:00">
+                Published: qua 22 maio 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/marcus-bittencourt.html">Marcus Bittencourt</a>
+        </address>
+<p>In <a href="/category/data-science.html">Data Science</a>.</p>
+<p>tags: <a href="/tag/r.html">r</a> <a href="/tag/view.html">view</a> </p>
+</footer><!-- /.post-info -->                <p>R plots</p>
+                <a class="readmore" href="/r-plots.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/setting-up-big-data-env-centos.html" rel="bookmark"
+                           title="Permalink to Setting up big data environment on Centos 7">Setting up big data environment on Centos 7</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-05-22T09:22:00-03:00">
                 Published: qua 22 maio 2019
@@ -27,106 +118,12 @@
         </address>
 <p>In <a href="/category/data-engineering.html">Data Engineering</a>.</p>
 <p>tags: <a href="/tag/hadoop.html">hadoop</a> <a href="/tag/tez.html">tez</a> <a href="/tag/hive.html">hive</a> </p>
-</footer><!-- /.post-info --><h1>Compiling Tez 0.9.2 for Hadoop 3.1.2</h1>
-<p><em>Utils</em></p>
-<div class="highlight"><pre><span></span>$ yum install autoconf automake libtool unzip gcc-c++ git
-</pre></div>
-
-
-<p><em>Node v6.16.0</em></p>
-<div class="highlight"><pre><span></span>$ yum install node
-$ node --version
-v6.16.0
-</pre></div>
-
-
-<p><em>Java OpenJDK 1.8</em></p>
-<div class="highlight"><pre><span></span>$ sudo yum install java-1.8.0-openjdk-devel
-$ <span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm
-$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$JAVA_HOME</span>/bin
-$ <span class="nb">source</span> ~/.bashrc
-</pre></div>
-
-
-<p><em>Maven 3.6.1</em> </p>
-<div class="highlight"><pre><span></span>$ mkdir /opt/maven
-$ wget http://ftp.unicamp.br/pub/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
-$ tar zxvf apache-maven-3.6.1-bin.tar.gz --directory<span class="o">=</span>/opt/maven --strip <span class="m">1</span>
-$ <span class="nb">export</span> <span class="nv">M3_HOME</span><span class="o">=</span>/opt/maven
-$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$M3_HOME</span>/bin
-$ <span class="nb">source</span> ~/.bashrc
-$ mvn --version
-Apache Maven <span class="m">3</span>.6.1 <span class="o">(</span>d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555<span class="p">;</span> <span class="m">2019</span>-04-04T16:00:29-03:00<span class="o">)</span>
-Maven home: /opt/maven
-Java version: <span class="m">1</span>.8.0_212, vendor: Oracle Corporation, runtime: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
-Default locale: en_US, platform encoding: UTF-8
-OS name: <span class="s2">&quot;linux&quot;</span>, version: <span class="s2">&quot;3.10.0-957.10.1.el7.x86_64&quot;</span>, arch: <span class="s2">&quot;amd64&quot;</span>, family: <span class="s2">&quot;unix&quot;</span>
-</pre></div>
-
-
-<p><em>Protobuf 2.5.0</em></p>
-<div class="highlight"><pre><span></span>$ mkdir /opt/protobuf
-$ wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
-$ tar zxvf protobuf-2.5.0.tar.gz --directory<span class="o">=</span>/opt/protobuf --strip <span class="m">1</span>
-$ <span class="nb">cd</span> /opt/protobuf/
-$ ./autogen.sh 
-$ ./configure
-$ make 
-$ make install
-$ protoc --version
-libprotoc <span class="m">2</span>.5.0
-</pre></div>
-
-
-<p><em>Tez 0.9.2</em></p>
-<div class="highlight"><pre><span></span>$ mkdir /opt/tez
-$ wget http://mirror.nbtelecom.com.br/apache/tez/0.9.2/apache-tez-0.9.2-src.tar.gz
-$ tar zxvf apache-tez-0.9.2-src.tar.gz --directory<span class="o">=</span>/opt/tez --strip <span class="m">1</span>
-<span class="c1"># Alterar hadoop.version no pom.xml para a versão instalada do hadoop, nesse caso 3.1.2</span>
-$ npm install yarn -g
-$ mvn clean package -DskipTests<span class="o">=</span><span class="nb">true</span> -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span> -Phadoop28 -Dhadoop.version<span class="o">=</span><span class="m">3</span>.1.2
-</pre></div>
-
-
-<h1>Install big data environment with hadoop 3.1.2 and tez 0.9.2</h1>
-<p><em>Hadoop 3.2.1</em></p>
-<div class="highlight"><pre><span></span>$ mkdir /opt/hadoop
-$ wget 
-$ 
-$
-</pre></div>
-
-
-<h1>Install and configure hive 3.1.1 on tez 0.9.2</h1>
-<p><em>Mysql 5.7.26</em> </p>
-<div class="highlight"><pre><span></span>$ msyql --version
-$ msyql -u root -p 
-mysql&gt; create database metastore<span class="p">;</span>
-</pre></div>
-
-
-<p><em>Hive 3.1.1</em></p>
-<div class="highlight"><pre><span></span>$ mkdir /opt/hive
-$ wget https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
-$
-</pre></div>
-
-
-<p>Install and configure sqoop</p>
-<p><em>Sqoop 1.4.7</em></p>
-<div class="highlight"><pre><span></span>$ mkdir /opt/sqoop
-$ wget http://ftp.unicamp.br/pub/apache/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
-$ tar zxvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz --directory<span class="o">=</span>/opt/sqoop --strip <span class="m">1</span>
-$ 
-$ sqoop version
-Sqoop <span class="m">1</span>.4.7
-git commit id 2328971411f57f0cb683dfb79d19d4d19d185dd8
-Compiled by maugli on Thu Dec <span class="m">21</span> <span class="m">15</span>:59:58 STD <span class="m">2017</span>
-</pre></div>
-
-
-<p><em>inspirated by https://hnlaomie.github.io/</em></p>                </article>
-            </aside><!-- /#featured -->
+</footer><!-- /.post-info -->                <p>Setting up big data environment on Centos 7</p>
+                <a class="readmore" href="/setting-up-big-data-env-centos.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
