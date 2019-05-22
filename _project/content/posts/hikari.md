@@ -6,6 +6,8 @@ Slug: hikari-connection-with-sqlite
 Authors: Marcus Bittencourt
 Summary: Setting up big data environment on Centos 7
 
+(underconstruction)
+
 Example code (references https://www.baeldung.com/hikaricp)
 
     :::java

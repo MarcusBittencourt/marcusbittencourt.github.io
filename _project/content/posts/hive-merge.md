@@ -6,6 +6,8 @@ Slug: hive-merge-history-strategy
 Authors: Marcus Bittencourt
 Summary: Hive merge query for History strategy
 
+(underconstruction)
+
 # Hive merge query for History strategy
 
 Create an external table for intermadiate updates from extracted data and load jobs

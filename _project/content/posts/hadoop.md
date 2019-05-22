@@ -6,6 +6,8 @@ Slug: setting-up-big-data-env-centos
 Authors: Marcus Bittencourt
 Summary: Setting up big data environment on Centos 7
 
+(underconstruction)
+
 # Compiling Tez 0.9.2 for Hadoop 3.1.2
 
 *Utils*

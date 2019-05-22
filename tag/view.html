@@ -3,34 +3,60 @@
 <head>
         <meta charset="utf-8" />
         <title>devnotes - view</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link rel="stylesheet" href="https://marcusbittencourt.gihub.io/theme/css/main.css" />
+        <link href="https://marcusbittencourt.gihub.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="devnotes Atom Feed" />
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">devnotes </a></h1>
+                <h1><a href="https://marcusbittencourt.gihub.io/">devnotes </a></h1>
                 <nav><ul>
-                    <li><a href="/category/data-engineering.html">Data Engineering</a></li>
-                    <li><a href="/category/data-science.html">Data Science</a></li>
+                    <li><a href="https://marcusbittencourt.gihub.io/category/data-engineering.html">Data Engineering</a></li>
+                    <li><a href="https://marcusbittencourt.gihub.io/category/data-science.html">Data Science</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/r-plots.html">R plots</a></h1>
+                    <h1 class="entry-title"><a href="https://marcusbittencourt.gihub.io/r-plots.html">R plots</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2019-05-22T09:22:00-03:00">
                 Published: qua 22 maio 2019
         </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/marcus-bittencourt.html">Marcus Bittencourt</a>
+                By                         <a class="url fn" href="https://marcusbittencourt.gihub.io/author/marcus-bittencourt.html">Marcus Bittencourt</a>
         </address>
-<p>In <a href="/category/data-science.html">Data Science</a>.</p>
-<p>tags: <a href="/tag/r.html">r</a> <a href="/tag/view.html">view</a> </p>
-</footer><!-- /.post-info --><p>Read the iris document</p>
+<p>In <a href="https://marcusbittencourt.gihub.io/category/data-science.html">Data Science</a>.</p>
+<p>tags: <a href="https://marcusbittencourt.gihub.io/tag/r.html">r</a> <a href="https://marcusbittencourt.gihub.io/tag/view.html">view</a> </p>
+</footer><!-- /.post-info --><p>(underconstruction)
+This article is plotly library showcase based on my skills like data scientist</p>
 <div class="highlight"><pre><span></span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;./iris.csv&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="p">)</span>
-</pre></div>                </article>
+
+<span class="o">:::</span><span class="n">r</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">plotly</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">plot_ly</span><span class="p">(</span>
+    <span class="n">type</span> <span class="o">=</span> <span class="s">&#39;scatterpolar&#39;</span><span class="p">,</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">39</span><span class="p">,</span> <span class="m">28</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">28</span><span class="p">,</span> <span class="m">39</span><span class="p">),</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;A&#39;</span><span class="p">,</span><span class="s">&#39;B&#39;</span><span class="p">,</span><span class="s">&#39;C&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">,</span> <span class="s">&#39;A&#39;</span><span class="p">),</span>
+    <span class="n">fill</span> <span class="o">=</span> <span class="s">&#39;toself&#39;</span>
+<span class="p">)</span> <span class="o">%&gt;%</span>
+<span class="nf">layout</span><span class="p">(</span>
+    <span class="n">polar</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+    <span class="n">radialaxis</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
+        <span class="n">visible</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span>
+        <span class="n">range</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">50</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">showlegend</span> <span class="o">=</span> <span class="bp">F</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<ol>
+<li>https://plot.ly/r/radar-chart/</li>
+</ol>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
@@ -44,6 +70,7 @@
                 <div class="social">
                         <h2>social</h2>
                         <ul>
+                            <li><a href="https://marcusbittencourt.gihub.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
                             <li><a href="https://www.linkedin.com/in/marcus-bittencourt-76a9a2b6/">LinkedIn</a></li>
                             <li><a href="https://github.com/MarcusBittencourt">Github</a></li>
