@@ -1,4 +1,4 @@
-Title: R plots
+Title: R plots using plotly library
 Category: Data Science
 Date: 22/05/2019 09:22
 Tags: r, view
@@ -11,6 +11,8 @@ This article is plotly library showcase based on my skills like data scientist
 
     :::r
     read.csv('./iris.csv', header = TRUE, sep = ',')
+
+Plot radar graph
 
     :::r
     library(plotly)
@@ -31,4 +33,4 @@ This article is plotly library showcase based on my skills like data scientist
         showlegend = F
     )
 
-1. https://plot.ly/r/radar-chart/
+1. [https://plot.ly/r/radar-chart/]

@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
         <meta charset="utf-8" />
-        <title>R plots</title>
+        <title>R plots using plotly library</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="devnotes Atom Feed" />
 </head>
@@ -20,7 +20,7 @@
     <header>
       <h1 class="entry-title">
         <a href="/r-plots.html" rel="bookmark"
-           title="Permalink to R plots">R plots</a></h1>
+           title="Permalink to R plots using plotly library">R plots using plotly library</a></h1>
     </header>
 
     <div class="entry-content">
@@ -37,9 +37,11 @@
 </footer><!-- /.post-info -->      <p>(underconstruction)
 This article is plotly library showcase based on my skills like data scientist</p>
 <div class="highlight"><pre><span></span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;./iris.csv&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
 
-<span class="o">:::</span><span class="n">r</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">plotly</span><span class="p">)</span>
+
+<p>Plot radar graph</p>
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">plotly</span><span class="p">)</span>
 
 <span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">plot_ly</span><span class="p">(</span>
     <span class="n">type</span> <span class="o">=</span> <span class="s">&#39;scatterpolar&#39;</span><span class="p">,</span>
@@ -60,7 +62,7 @@ This article is plotly library showcase based on my skills like data scientist</
 
 
 <ol>
-<li>https://plot.ly/r/radar-chart/</li>
+<li>[https://plot.ly/r/radar-chart/]</li>
 </ol>
     </div><!-- /.entry-content -->
 

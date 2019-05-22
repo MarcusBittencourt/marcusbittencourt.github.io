@@ -18,7 +18,7 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/r-plots.html">R plots</a></h1>
+                    <h1 class="entry-title"><a href="/r-plots.html">R plots using plotly library</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2019-05-22T09:22:00-03:00">
                 Published: qua 22 maio 2019
@@ -32,9 +32,11 @@
 </footer><!-- /.post-info --><p>(underconstruction)
 This article is plotly library showcase based on my skills like data scientist</p>
 <div class="highlight"><pre><span></span><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#39;./iris.csv&#39;</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
 
-<span class="o">:::</span><span class="n">r</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">plotly</span><span class="p">)</span>
+
+<p>Plot radar graph</p>
+<div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">plotly</span><span class="p">)</span>
 
 <span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">plot_ly</span><span class="p">(</span>
     <span class="n">type</span> <span class="o">=</span> <span class="s">&#39;scatterpolar&#39;</span><span class="p">,</span>
@@ -55,7 +57,7 @@ This article is plotly library showcase based on my skills like data scientist</
 
 
 <ol>
-<li>https://plot.ly/r/radar-chart/</li>
+<li>[https://plot.ly/r/radar-chart/]</li>
 </ol>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">

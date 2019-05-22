@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>devnotes - Data Science</title><link href="/" rel="alternate"></link><link href="/feeds/data-science.atom.xml" rel="self"></link><id>/</id><updated>2019-05-22T09:22:00-03:00</updated><entry><title>R plots</title><link href="/r-plots.html" rel="alternate"></link><published>2019-05-22T09:22:00-03:00</published><updated>2019-05-22T09:22:00-03:00</updated><author><name>Marcus Bittencourt</name></author><id>tag:None,2019-05-22:/r-plots.html</id><summary type="html">&lt;p&gt;R plots using plotly library&lt;/p&gt;</summary><content type="html">&lt;p&gt;(underconstruction)
+<feed xmlns="http://www.w3.org/2005/Atom"><title>devnotes - Data Science</title><link href="/" rel="alternate"></link><link href="/feeds/data-science.atom.xml" rel="self"></link><id>/</id><updated>2019-05-22T09:22:00-03:00</updated><entry><title>R plots using plotly library</title><link href="/r-plots.html" rel="alternate"></link><published>2019-05-22T09:22:00-03:00</published><updated>2019-05-22T09:22:00-03:00</updated><author><name>Marcus Bittencourt</name></author><id>tag:None,2019-05-22:/r-plots.html</id><summary type="html">&lt;p&gt;R plots using plotly library&lt;/p&gt;</summary><content type="html">&lt;p&gt;(underconstruction)
 This article is plotly library showcase based on my skills like data scientist&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;read.csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;./iris.csv&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;header&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;TRUE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sep&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 
-&lt;span class="o"&gt;:::&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;
-&lt;span class="nf"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;plotly&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;p&gt;Plot radar graph&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nf"&gt;library&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;plotly&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;-&lt;/span&gt; &lt;span class="nf"&gt;plot_ly&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
     &lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;scatterpolar&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -25,5 +27,5 @@ This article is plotly library showcase based on my skills like data scientist&l
 
 
 &lt;ol&gt;
-&lt;li&gt;https://plot.ly/r/radar-chart/&lt;/li&gt;
+&lt;li&gt;[https://plot.ly/r/radar-chart/]&lt;/li&gt;
 &lt;/ol&gt;</content><category term="r"></category><category term="view"></category></entry></feed>
