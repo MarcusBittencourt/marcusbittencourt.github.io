@@ -12,6 +12,7 @@
                 <nav><ul>
                     <li><a href="/category/data-engineering.html">Data Engineering</a></li>
                     <li><a href="/category/data-science.html">Data Science</a></li>
+                    <li><a href="/category/development.html">Development</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -60,7 +61,7 @@ OS name: <span class="s2">&quot;linux&quot;</span>, version: <span class="s2">&q
 </pre></div>
 
 
-<h3>Node v6.16.0</h3>
+<h3>Node 6.16.0</h3>
 <div class="highlight"><pre><span></span>$ yum install node
 $ node --version
 v6.16.0
@@ -81,9 +82,9 @@ $ yarn --version
 
 
 <h3>NPM 6.9.1</h3>
-<div class="highlight"><pre><span></span>$ npm install -g npm@next
-$ npm --version
-<span class="m">6</span>.9.1-next-0
+<div class="highlight"><pre><span></span>$ <span class="nv">npm</span> <span class="nv">install</span> <span class="o">-</span><span class="nv">g</span> <span class="nv">npm</span>@<span class="k">next</span>
+$ <span class="nv">npm</span> <span class="o">--</span><span class="nv">version</span>
+<span class="mi">6</span>.<span class="mi">9</span>.<span class="mi">1</span><span class="o">-</span><span class="k">next</span><span class="o">-</span><span class="mi">0</span>
 </pre></div>
 
 
@@ -150,7 +151,7 @@ $ rm /opt/tez-src
 
 
 <h1>Install big data environment with hadoop 3.1.2 and tez 0.9.2</h1>
-<h3>Hadoop 3.2.1</h3>
+<h3>Hadoop 3.1.2</h3>
 <div class="highlight"><pre><span></span>$ mkdir /data
 $ mkdir /opt/hadoop
 $ wget http://mirror.nbtelecom.com.br/apache/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
@@ -196,11 +197,11 @@ Starting nodemanagers
 <div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
         <span class="nt">&lt;property&gt;</span>
                 <span class="nt">&lt;name&gt;</span>dfs.datanode.data.dir<span class="nt">&lt;/name&gt;</span>
-                <span class="nt">&lt;value&gt;</span>/opt/data/1/dn<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;value&gt;</span>/data/1/dn<span class="nt">&lt;/value&gt;</span>
         <span class="nt">&lt;/property&gt;</span>
         <span class="nt">&lt;property&gt;</span>
                 <span class="nt">&lt;name&gt;</span>dfs.namenode.name.dir<span class="nt">&lt;/name&gt;</span>
-                <span class="nt">&lt;value&gt;</span>/opt/data/1/nn<span class="nt">&lt;/value&gt;</span>
+                <span class="nt">&lt;value&gt;</span>/data/1/nn<span class="nt">&lt;/value&gt;</span>
         <span class="nt">&lt;/property&gt;</span>
         <span class="nt">&lt;property&gt;</span>
                 <span class="nt">&lt;name&gt;</span>dfs.namenode.http-address<span class="nt">&lt;/name&gt;</span>

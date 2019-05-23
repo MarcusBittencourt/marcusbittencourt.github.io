@@ -10,8 +10,9 @@
         <header id="banner" class="body">
                 <h1><a href="/">devnotes </a></h1>
                 <nav><ul>
-                    <li class="active"><a href="/category/data-engineering.html">Data Engineering</a></li>
+                    <li><a href="/category/data-engineering.html">Data Engineering</a></li>
                     <li><a href="/category/data-science.html">Data Science</a></li>
+                    <li class="active"><a href="/category/development.html">Development</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 <section id="content" class="body">
@@ -31,10 +32,19 @@
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/marcus-bittencourt.html">Marcus Bittencourt</a>
         </address>
-<p>In <a href="/category/data-engineering.html">Data Engineering</a>.</p>
+<p>In <a href="/category/development.html">Development</a>.</p>
 <p>tags: <a href="/tag/hikari.html">hikari</a> <a href="/tag/sqlite.html">sqlite</a> </p>
 </footer><!-- /.post-info -->      <p>(underconstruction)</p>
-<p>Example code (references https://www.baeldung.com/hikaricp)</p>
+<h3>add hikaricp dependency to your pom.xml</h3>
+<div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.zaxxer<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>HikariCP<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.3.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<h3>example code (references https://www.baeldung.com/hikaricp)</h3>
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DataSource</span> <span class="o">{</span>
 
     <span class="kd">private</span> <span class="kd">static</span> <span class="n">HikariConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HikariConfig</span><span class="o">();</span>

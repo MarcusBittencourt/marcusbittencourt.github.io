@@ -1,5 +1,5 @@
 Title: Hikari connection with SQLite
-Category: Data Engineering
+Category: Development
 Date: 22/05/2019 11:21
 Tags: hikari, sqlite
 Slug: hikari-connection-with-sqlite
@@ -8,9 +8,21 @@ Summary: Setting up big data environment on Centos 7
 
 (underconstruction)
 
-Example code (references https://www.baeldung.com/hikaricp)
+### add hikaricp dependency to your pom.xml
+    
+    :::xml
+
+    <dependency>
+        <groupId>com.zaxxer</groupId>
+        <artifactId>HikariCP</artifactId>
+        <version>3.3.1</version>
+    </dependency>
+
+
+### example code (references https://www.baeldung.com/hikaricp)
 
     :::java
+
     public class DataSource {
  
         private static HikariConfig config = new HikariConfig();

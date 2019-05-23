@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
         <meta charset="utf-8" />
-        <title>devnotes - Categories</title>
+        <title>Flying with pelican project</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -12,15 +12,50 @@
                 <nav><ul>
                     <li><a href="/category/data-engineering.html">Data Engineering</a></li>
                     <li><a href="/category/data-science.html">Data Science</a></li>
-                    <li><a href="/category/development.html">Development</a></li>
+                    <li class="active"><a href="/category/development.html">Development</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-    <h1>Categories on devnotes</h1>
-    <ul>
-        <li><a href="/category/data-engineering.html">Data Engineering</a> (3)</li>
-        <li><a href="/category/data-science.html">Data Science</a> (1)</li>
-        <li><a href="/category/development.html">Development</a> (2)</li>
-    </ul>
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/flying-with-pelican-project.html" rel="bookmark"
+           title="Permalink to Flying with pelican project">Flying with pelican project</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-05-22T23:18:00-03:00">
+                Published: qua 22 maio 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/marcus-bittencourt.html">Marcus Bittencourt</a>
+        </address>
+<p>In <a href="/category/development.html">Development</a>.</p>
+<p>tags: <a href="/tag/python.html">python</a> <a href="/tag/pelican.html">pelican</a> </p>
+</footer><!-- /.post-info -->      <h1>Flying with pelican project</h1>
+<h3>Install pelican</h3>
+<div class="highlight"><pre><span></span>$ pip install pelican
+$ pip install markdown
+$ pip install typogrify
+</pre></div>
+
+
+<h3>create pelican project based on quickstart template scafold</h3>
+<div class="highlight"><pre><span></span>$ pelican quickstart
+</pre></div>
+
+
+<h3>build html static pages and run on localhost:8000</h3>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> /_project
+$ make html
+$ make serve
+</pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

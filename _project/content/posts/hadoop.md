@@ -131,7 +131,7 @@ Try logout of your bash if npm previous version persist
 
 # Install big data environment with hadoop 3.1.2 and tez 0.9.2
 
-### Hadoop 3.2.1
+### Hadoop 3.1.2
 
 	:::bash
 	$ mkdir /data
