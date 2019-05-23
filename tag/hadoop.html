@@ -4,7 +4,6 @@
         <meta charset="utf-8" />
         <title>devnotes - hadoop</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="devnotes Atom Feed" />
 </head>
 
 <body id="index" class="home">
@@ -29,21 +28,15 @@
         </address>
 <p>In <a href="/category/data-engineering.html">Data Engineering</a>.</p>
 <p>tags: <a href="/tag/hadoop.html">hadoop</a> <a href="/tag/tez.html">tez</a> <a href="/tag/hive.html">hive</a> </p>
-</footer><!-- /.post-info --><p>(underconstruction)</p>
+</footer><!-- /.post-info --><p>This environment setup is desined for supports scaled big data process in organizations with BI demand and needs data lake insfrastructure</p>
+<p>(underconstruction)</p>
 <h1>Compiling Tez 0.9.2 for Hadoop 3.1.2</h1>
-<p><em>Utils</em></p>
-<div class="highlight"><pre><span></span>$ yum install autoconf automake libtool unzip gcc-c++ git
+<h3>Utils</h3>
+<div class="highlight"><pre><span></span>$ yum install nano autoconf automake libtool unzip gcc-c++ git
 </pre></div>
 
 
-<p><em>Node v6.16.0</em></p>
-<div class="highlight"><pre><span></span>$ yum install node
-$ node --version
-v6.16.0
-</pre></div>
-
-
-<p><em>Java OpenJDK 1.8</em></p>
+<h3>Java OpenJDK 1.8</h3>
 <div class="highlight"><pre><span></span>$ sudo yum install java-1.8.0-openjdk-devel
 $ <span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm
 $ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$JAVA_HOME</span>/bin
@@ -51,7 +44,7 @@ $ <span class="nb">source</span> ~/.bashrc
 </pre></div>
 
 
-<p><em>Maven 3.6.1</em> </p>
+<h3>Maven 3.6.1</h3>
 <div class="highlight"><pre><span></span>$ mkdir /opt/maven
 $ wget http://ftp.unicamp.br/pub/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
 $ tar zxvf apache-maven-3.6.1-bin.tar.gz --directory<span class="o">=</span>/opt/maven --strip <span class="m">1</span>
@@ -67,7 +60,35 @@ OS name: <span class="s2">&quot;linux&quot;</span>, version: <span class="s2">&q
 </pre></div>
 
 
-<p><em>Protobuf 2.5.0</em></p>
+<h3>Node v6.16.0</h3>
+<div class="highlight"><pre><span></span>$ yum install node
+$ node --version
+v6.16.0
+$ npm cache clean -f
+$ npm install -g n 
+$ n stable
+$ sudo ln -sf /usr/local/n/versions/node/10.15.3/bin/node /usr/bin/node
+$ node --version
+v10.15.3
+</pre></div>
+
+
+<h3>Yarn pkg 1.16.0</h3>
+<div class="highlight"><pre><span></span>$ npm install --global yarn
+$ yarn --version
+<span class="m">1</span>.16.0
+</pre></div>
+
+
+<h3>NPM 6.9.1</h3>
+<div class="highlight"><pre><span></span>$ npm install -g npm@next
+$ npm --version
+<span class="m">6</span>.9.1-next-0
+</pre></div>
+
+
+<p>Try logout of your bash if npm previous version persist</p>
+<h3>Protobuf 2.5.0</h3>
 <div class="highlight"><pre><span></span>$ mkdir /opt/protobuf
 $ wget https://github.com/google/protobuf/releases/download/v2.5.0/protobuf-2.5.0.tar.gz
 $ tar zxvf protobuf-2.5.0.tar.gz --directory<span class="o">=</span>/opt/protobuf --strip <span class="m">1</span>
@@ -81,34 +102,199 @@ libprotoc <span class="m">2</span>.5.0
 </pre></div>
 
 
-<p><em>Tez 0.9.2</em></p>
-<div class="highlight"><pre><span></span>$ mkdir /opt/tez
+<h3>Tez 0.9.2</h3>
+<div class="highlight"><pre><span></span>$ mkdir /opt/tez-src
 $ wget http://mirror.nbtelecom.com.br/apache/tez/0.9.2/apache-tez-0.9.2-src.tar.gz
 $ tar zxvf apache-tez-0.9.2-src.tar.gz --directory<span class="o">=</span>/opt/tez --strip <span class="m">1</span>
-<span class="c1"># Alterar hadoop.version no pom.xml para a versão instalada do hadoop, nesse caso 3.1.2</span>
-$ npm install yarn -g
-$ mvn clean package -DskipTests<span class="o">=</span><span class="nb">true</span> -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span> -Phadoop28 -Dhadoop.version<span class="o">=</span><span class="m">3</span>.1.2
+$ mvn clean package -DskipTests<span class="o">=</span><span class="nb">true</span> -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span> -Phadoop28 -Dhadoop.version<span class="o">=</span><span class="m">3</span>.1.2 -Dfrontend-maven-plugin.version<span class="o">=</span><span class="m">0</span>.0.23 -X 
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+<span class="o">[</span>INFO<span class="o">]</span> Reactor Summary <span class="k">for</span> tez <span class="m">0</span>.9.2:
+<span class="o">[</span>INFO<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez ................................................ SUCCESS <span class="o">[</span>  <span class="m">1</span>.924 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> hadoop-shim ........................................ SUCCESS <span class="o">[</span>  <span class="m">4</span>.789 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-api ............................................ SUCCESS <span class="o">[</span> <span class="m">12</span>.615 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-build-tools .................................... SUCCESS <span class="o">[</span>  <span class="m">2</span>.085 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-common ......................................... SUCCESS <span class="o">[</span>  <span class="m">4</span>.235 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-runtime-internals .............................. SUCCESS <span class="o">[</span>  <span class="m">4</span>.680 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-runtime-library ................................ SUCCESS <span class="o">[</span> <span class="m">10</span>.753 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-mapreduce ...................................... SUCCESS <span class="o">[</span>  <span class="m">5</span>.256 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-examples ....................................... SUCCESS <span class="o">[</span>  <span class="m">3</span>.046 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-dag ............................................ SUCCESS <span class="o">[</span> <span class="m">14</span>.565 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-tests .......................................... SUCCESS <span class="o">[</span>  <span class="m">4</span>.699 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-ext-service-tests .............................. SUCCESS <span class="o">[</span>  <span class="m">4</span>.466 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-plugins ........................................ SUCCESS <span class="o">[</span>  <span class="m">0</span>.538 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-protobuf-history-plugin ........................ SUCCESS <span class="o">[</span>  <span class="m">3</span>.780 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-yarn-timeline-history .......................... SUCCESS <span class="o">[</span>  <span class="m">4</span>.404 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-yarn-timeline-history-with-acls ................ SUCCESS <span class="o">[</span>  <span class="m">2</span>.517 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-history-parser ................................. SUCCESS <span class="o">[</span><span class="m">02</span>:03 min<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-aux-services ................................... SUCCESS <span class="o">[</span> <span class="m">45</span>.909 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-yarn-timeline-cache-plugin ..................... SUCCESS <span class="o">[</span><span class="m">01</span>:22 min<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-yarn-timeline-history-with-fs .................. SUCCESS <span class="o">[</span>  <span class="m">2</span>.244 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-tools .......................................... SUCCESS <span class="o">[</span>  <span class="m">0</span>.222 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-perf-analyzer .................................. SUCCESS <span class="o">[</span>  <span class="m">0</span>.247 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-job-analyzer ................................... SUCCESS <span class="o">[</span>  <span class="m">2</span>.940 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-javadoc-tools .................................. SUCCESS <span class="o">[</span>  <span class="m">2</span>.204 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> hadoop-shim-impls .................................. SUCCESS <span class="o">[</span>  <span class="m">0</span>.188 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> hadoop-shim-2.8 .................................... SUCCESS <span class="o">[</span>  <span class="m">1</span>.844 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> tez-dist ........................................... SUCCESS <span class="o">[</span><span class="m">02</span>:02 min<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> Tez ................................................ SUCCESS <span class="o">[</span>  <span class="m">0</span>.194 s<span class="o">]</span>
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+<span class="o">[</span>INFO<span class="o">]</span> BUILD SUCCESS
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+<span class="o">[</span>INFO<span class="o">]</span> Total time:  <span class="m">07</span>:49 min
+<span class="o">[</span>INFO<span class="o">]</span> Finished at: <span class="m">2019</span>-05-22T14:44:06-03:00
+<span class="o">[</span>INFO<span class="o">]</span> ------------------------------------------------------------------------
+<span class="c1"># before tez installation this directory can be deleted</span>
+$ rm /opt/tez-src
 </pre></div>
 
 
 <h1>Install big data environment with hadoop 3.1.2 and tez 0.9.2</h1>
-<p><em>Hadoop 3.2.1</em></p>
-<div class="highlight"><pre><span></span>$ mkdir /opt/hadoop
-$ wget 
+<h3>Hadoop 3.2.1</h3>
+<div class="highlight"><pre><span></span>$ mkdir /data
+$ mkdir /opt/hadoop
+$ wget http://mirror.nbtelecom.com.br/apache/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
+$ tar zxvf hadoop-3.1.2.tar.gz --directory<span class="o">=</span>/opt/hadoop --strip <span class="m">1</span>
+<span class="c1"># Configure core-site.xml following the sample</span>
+$ nano /opt/hadoop/etc/hadoop/core-site.xml
+<span class="c1"># Configure hdfs-site.xml following the sample</span>
+$ nano /opt/hadoop/etc/hadoop/hdfs-site.xml
+<span class="c1"># Configure yarn-site.xml following the sample</span>
+$ nano /opt/hadoop/etc/hadoop/yarn-site.xml
+<span class="c1"># Configure mapred-site.xml following the sample</span>
+$ nano /opt/hadoop/etc/hadoop/mapred-site.xml
+<span class="c1"># Configure hadoop-env.sh following the sample</span>
+$ nano /opt/hadoop/etc/hadoop/hadoop-env.sh
+$ <span class="nv">$HADOOP_HOME</span>/sbin/start-all.sh
+Starting namenodes on <span class="o">[</span>localhost<span class="o">]</span>
+Starting datanodes
+Starting secondary namenodes <span class="o">[</span>flnsrvungp000129<span class="o">]</span>
+Starting resourcemanager
+Starting nodemanagers
+</pre></div>
+
+
+<p><em>core-site.xml</em></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;property&gt;</span>
+                <span class="nt">&lt;name&gt;</span>fs.default.name<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>hdfs://localhost:8020<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property&gt;</span>
+                <span class="nt">&lt;name&gt;</span>hadoop.proxyuser.hadoop.groups<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>*<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property&gt;</span>
+                <span class="nt">&lt;name&gt;</span>hadoop.proxyuser.hadoop.hosts<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>*<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p><em>hdfs-site.xml</em></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;property&gt;</span>
+                <span class="nt">&lt;name&gt;</span>dfs.datanode.data.dir<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>/opt/data/1/dn<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property&gt;</span>
+                <span class="nt">&lt;name&gt;</span>dfs.namenode.name.dir<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>/opt/data/1/nn<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property&gt;</span>
+                <span class="nt">&lt;name&gt;</span>dfs.namenode.http-address<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>localhost:50070<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property&gt;</span>
+                <span class="nt">&lt;name&gt;</span>dfs.replication<span class="nt">&lt;/name&gt;</span>
+                <span class="nt">&lt;value&gt;</span>1<span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p><em>yarn-site.xml</em></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>yarn.nodemanager.aux-services<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>mapreduce_shuffle<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>yarn.scheduler.minimum-allocation-mb<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>2560<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>yarn.scheduler.maximum-allocation-mb<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>4096<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>yarn.scheduler.maximum.resource.memory-mb<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>7680<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>yarn.scheduler.maximum.allocation-vcores<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>3<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>yarn.nodemanager.resource.cpu-vcores<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>3<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>yarn.resourcemanager.scheduler.class<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>org.apache.hadoop.yarn.server.resourcemanager.scheduler.fair.FairScheduler<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p><em>mapred-site.xml</em></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;property&gt;</span>
+            <span class="nt">&lt;name&gt;</span>mapreduce.framework.name<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;value&gt;</span>yarn-tez<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
+<p><em>hadoop-env.sh</em></p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/jre-1.8.0-openjdk
+</pre></div>
+
+
+<h3>Tez 0.9.2</h3>
+<div class="highlight"><pre><span></span>$ hadoop fs -mdkir /user/tez
+$ hadoop fs -put /opt/tez-src/tez-dist/target/tez-0.9.2.tar.gz /user/tez
+$ mkdir /opt/tez
+$ mkdir /opt/tez/conf
+$ tar zxvf /opt/tez-src/tez-dist/target/tez-0.9.2-minimal.tar.gz --directory<span class="o">=</span>/opt/tez --strip <span class="m">1</span>
+<span class="c1"># configure tez-site.xml following the sample</span>
+$ nano /opt/tez/conf/tez-site.xml
 $ 
 $
 </pre></div>
 
 
+<p><em>tez-site</em></p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;configuration&gt;</span> 
+    <span class="nt">&lt;property&gt;</span>
+        <span class="nt">&lt;name&gt;</span>tez.uri.libs<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;value&gt;</span>http://localhost:8020/user/tez/tez-0.9.2.tar.gz<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</pre></div>
+
+
 <h1>Install and configure hive 3.1.1 on tez 0.9.2</h1>
-<p><em>Mysql 5.7.26</em> </p>
+<h3>Mysql 5.7.26</h3>
 <div class="highlight"><pre><span></span>$ msyql --version
 $ msyql -u root -p 
 mysql&gt; create database metastore<span class="p">;</span>
 </pre></div>
 
 
-<p><em>Hive 3.1.1</em></p>
+<h3>Hive 3.1.1</h3>
 <div class="highlight"><pre><span></span>$ mkdir /opt/hive
 $ wget https://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
 $
@@ -116,7 +302,7 @@ $
 
 
 <p>Install and configure sqoop</p>
-<p><em>Sqoop 1.4.7</em></p>
+<h3>Sqoop 1.4.7</h3>
 <div class="highlight"><pre><span></span>$ mkdir /opt/sqoop
 $ wget http://ftp.unicamp.br/pub/apache/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
 $ tar zxvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz --directory<span class="o">=</span>/opt/sqoop --strip <span class="m">1</span>
@@ -128,7 +314,17 @@ Compiled by maugli on Thu Dec <span class="m">21</span> <span class="m">15</span
 </pre></div>
 
 
-<p><em>inspirated by https://hnlaomie.github.io/</em></p>                </article>
+<p><em>Knowledge problems:</em></p>
+<ol>
+<li>mvn fails during tez compilation with yarn install error, check your nodejs version, this must be fixed updatating.</li>
+<li>mvn fails during tez compilation with yarn install error, dont set the YARN_HOME variable in your path.</li>
+<li>mvn fails during tez compilation with protoc not found, check yout version of protobufer, is required 2.5.0 for hadoop 3.1.2</li>
+<li>mvn fails during tez compilation with execute goal com.github.eirslett:frontend-maven-plugin, add the paramenter -Dfrontend-maven-plugin.version=0.0.23</li>
+</ol>
+<p><em>References</em></p>
+<ol>
+<li>https://tecadmin.net/upgrade-nodejs-via-npm/</li>
+</ol>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
@@ -137,12 +333,12 @@ Compiled by maugli on Thu Dec <span class="m">21</span> <span class="m">15</span
                             <li><a href="http://getpelican.com/">Pelican</a></li>
                             <li><a href="http://python.org/">Python.org</a></li>
                             <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="https://hnlaomie.github.io/">hnlaomie</a></li>
                         </ul>
                 </div><!-- /.blogroll -->
                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
                             <li><a href="https://www.linkedin.com/in/marcus-bittencourt-76a9a2b6/">LinkedIn</a></li>
                             <li><a href="https://github.com/MarcusBittencourt">Github</a></li>

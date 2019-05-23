@@ -22,7 +22,8 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),)
+         ('Jinja2', 'http://jinja.pocoo.org/'),
+         ('hnlaomie', 'https://hnlaomie.github.io/'))
 
 # Social widget
 SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/marcus-bittencourt-76a9a2b6/'),
