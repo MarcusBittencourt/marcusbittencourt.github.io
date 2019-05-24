@@ -1,4 +1,4 @@
-Title: R plots using plotly library
+Title: Beaultiful R plots using plotly library
 Category: Data Science
 Date: 22/05/2019 09:22
 Tags: r, view

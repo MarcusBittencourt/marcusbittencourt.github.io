@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+  <title>Hive merge query for History strategy</title>
+
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="origin" />
+  <meta name="generator" content="Pelican" />
+  <link href="/" rel="canonical" />
+
+  <!-- Feed -->
+
+  <link href="/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="/theme/css/code_blocks/tomorrow.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <link href="/hive-merge-history-strategy.html" rel="canonical" />
+
+    <meta name="description" content="Hive merge query for History strategy">
+
+    <meta name="author" content="Marcus Bittencourt">
+
+    <meta name="tags" content="hive">
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="devnotes"/>
+<meta property="og:title" content="Hive merge query for History strategy"/>
+<meta property="og:description" content="Hive merge query for History strategy"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="/hive-merge-history-strategy.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-05-22 11:11:00-03:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="/author/marcus-bittencourt.html">
+<meta property="article:section" content="Data Engineering"/>
+<meta property="article:tag" content="hive"/>
+<meta property="og:image" content="/theme/images/post-bg.jpg">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Hive merge query for History strategy",
+  "headline": "Hive merge query for History strategy",
+  "datePublished": "2019-05-22 11:11:00-03:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Marcus Bittencourt",
+    "url": "/author/marcus-bittencourt.html"
+  },
+  "image": "/theme/images/post-bg.jpg",
+  "url": "/hive-merge-history-strategy.html",
+  "description": "Hive merge query for History strategy"
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+<nav id="menu">
+  <a class="close-button">Close</a>
+  <div class="nav-wrapper">
+    <p class="nav-label">Menu</p>
+    <ul>
+
+
+    </ul>
+  </div>
+</nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Hive merge query for History strategy</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="/author/marcus-bittencourt.html">Marcus Bittencourt</a>
+            | <time datetime="qua 22 maio 2019">qua 22 maio 2019</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('/theme/images/post-bg.jpg')">
+      </div>
+    </header>
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p>(underconstruction)</p>
+<h1>Hive merge query for History strategy</h1>
+<p>Create an external table for intermadiate updates from extracted data and load jobs</p>
+<div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">EXTERNAL</span> <span class="k">TABLE</span> <span class="n">staging</span><span class="p">.</span><span class="n">update_contributors</span> <span class="p">(</span>
+    <span class="n">login</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">email</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">nome</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">idcentrocusto</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">nmcentrocusto</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">idempresa</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">nmempresa</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">idunidade</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">nmunidade</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">nucargahoraria</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">nmcargo</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">nmperfil</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">dtadmissao</span> <span class="n">string</span><span class="p">,</span>
+    <span class="n">dtdemissao</span> <span class="n">string</span>
+<span class="p">)</span> 
+<span class="k">ROW</span> <span class="n">FORMAT</span> <span class="n">DELIMITED</span>
+<span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;,&#39;</span>
+<span class="n">STORED</span> <span class="k">AS</span> <span class="n">TEXTFILE</span><span class="p">;</span>
+
+<span class="k">LOAD</span> <span class="k">DATA</span> <span class="n">INPATH</span> <span class="s1">&#39;/user/pig/serp&#39;</span> <span class="n">OVERWRITE</span> <span class="k">INTO</span> <span class="k">TABLE</span> <span class="n">staging</span><span class="p">.</span><span class="n">update_contributors</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Create destiny table for results after merge action</p>
+<div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">staging</span><span class="p">.</span><span class="n">contributors</span>
+<span class="k">ROW</span> <span class="n">FORMAT</span> <span class="n">DELIMITED</span> 
+    <span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="k">BY</span> <span class="s1">&#39;,&#39;</span>
+<span class="n">STORED</span> <span class="k">AS</span> <span class="n">ORC</span>
+<span class="n">tblproperties</span> <span class="p">(</span><span class="s1">&#39;transactional&#39;</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="s1">&#39;orc.compression&#39;</span> <span class="o">=</span> <span class="s1">&#39;ZLIB&#39;</span><span class="p">)</span>
+<span class="k">AS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">update_contributors</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="k">current_timestamp</span> <span class="k">as</span> <span class="n">load_date</span><span class="p">,</span> <span class="k">FALSE</span> <span class="k">as</span> <span class="n">archived</span> <span class="k">FROM</span> <span class="n">staging</span><span class="p">.</span><span class="n">update_contributors</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Create temporary table for manage actions and auxiliary decisions when upserts is necessary</p>
+<div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TEMPORARY</span> <span class="k">TABLE</span> <span class="n">staging</span><span class="p">.</span><span class="n">diff_contributors</span> 
+<span class="n">STORED</span> <span class="k">AS</span> <span class="n">ORC</span>
+<span class="n">TBLPROPERTIES</span> <span class="p">(</span><span class="ss">&quot;auto.purge&quot;</span><span class="o">=</span><span class="ss">&quot;true&quot;</span><span class="p">)</span>
+<span class="k">AS</span> <span class="p">(</span>
+<span class="k">SELECT</span> 
+        <span class="n">update_contributors</span><span class="p">.</span><span class="o">*</span><span class="p">,</span>
+        <span class="k">CASE</span> 
+            <span class="k">WHEN</span> <span class="p">(</span><span class="n">update_contributors</span><span class="p">.</span><span class="n">login</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">login</span> 
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">nome</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">nome</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">idcentrocusto</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">idcentrocusto</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">nmcentrocusto</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">nmcentrocusto</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">idempresa</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">idempresa</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">nmempresa</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">nmempresa</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">idunidade</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">idunidade</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">nmunidade</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">nmunidade</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">nucargahoraria</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">nucargahoraria</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">nmcargo</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">nmcargo</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">nmperfil</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">nmperfil</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">dtadmissao</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">dtadmissao</span>
+            <span class="k">OR</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">dtdemissao</span> <span class="o">&lt;&gt;</span> <span class="n">contributors</span><span class="p">.</span><span class="n">dtdemissao</span><span class="p">)</span> <span class="k">THEN</span> <span class="k">TRUE</span> 
+            <span class="k">ELSE</span> <span class="k">FALSE</span> 
+        <span class="k">END</span> <span class="k">AS</span> <span class="n">changed</span>
+    <span class="k">FROM</span> <span class="n">staging</span><span class="p">.</span><span class="n">contributors</span><span class="p">,</span> <span class="n">staging</span><span class="p">.</span><span class="n">update_contributors</span>
+    <span class="k">WHERE</span> <span class="n">contributors</span><span class="p">.</span><span class="n">login</span> <span class="o">=</span> <span class="n">update_contributors</span><span class="p">.</span><span class="n">login</span>
+    <span class="k">AND</span> <span class="k">NOT</span> <span class="n">contributors</span><span class="p">.</span><span class="n">archived</span>
+<span class="p">);</span>
+</pre></div>
+
+
+<p>Perform the merge between table of update data and the historical records (tez engine, is required because spark dont need support for merge clause)</p>
+<div class="highlight"><pre><span></span><span class="n">MERGE</span> <span class="k">INTO</span> <span class="n">staging</span><span class="p">.</span><span class="n">contributors</span> <span class="k">c</span> <span class="k">USING</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="k">FALSE</span> <span class="k">AS</span> <span class="n">to_filed</span> <span class="k">FROM</span> <span class="n">staging</span><span class="p">.</span><span class="n">diff_contributors</span>
+    <span class="k">UNION</span> <span class="k">ALL</span>
+    <span class="k">SELECT</span> <span class="o">*</span><span class="p">,</span> <span class="k">TRUE</span> <span class="k">AS</span> <span class="n">to_filed</span> <span class="k">FROM</span> <span class="n">staging</span><span class="p">.</span><span class="n">diff_contributors</span> <span class="k">WHERE</span> <span class="n">changed</span>
+<span class="p">)</span>
+<span class="k">AS</span> <span class="n">updates</span> <span class="k">ON</span> <span class="n">updates</span><span class="p">.</span><span class="n">login</span> <span class="o">=</span> <span class="k">c</span><span class="p">.</span><span class="n">login</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="k">c</span><span class="p">.</span><span class="n">archived</span>
+<span class="k">WHEN</span> <span class="n">matched</span> <span class="k">AND</span> <span class="n">updates</span><span class="p">.</span><span class="n">changed</span> <span class="k">AND</span> <span class="n">updates</span><span class="p">.</span><span class="n">to_filed</span>
+    <span class="k">THEN</span> <span class="k">UPDATE</span> <span class="k">SET</span> <span class="n">archived</span> <span class="o">=</span> <span class="k">TRUE</span>
+<span class="k">WHEN</span> <span class="n">matched</span> <span class="k">AND</span> <span class="n">updates</span><span class="p">.</span><span class="n">changed</span> <span class="k">AND</span> <span class="k">NOT</span> <span class="n">updates</span><span class="p">.</span><span class="n">to_filed</span> <span class="k">THEN</span> <span class="k">INSERT</span> <span class="k">VALUES</span> <span class="p">(</span>
+    <span class="n">updates</span><span class="p">.</span><span class="n">login</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">email</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idcentrocusto</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmcentrocusto</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idempresa</span><span class="p">,</span> 
+    <span class="n">updates</span><span class="p">.</span><span class="n">nmempresa</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idunidade</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmunidade</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nucargahoraria</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmcargo</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmperfil</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">dtadmissao</span><span class="p">,</span> 
+    <span class="n">updates</span><span class="p">.</span><span class="n">dtdemissao</span><span class="p">,</span> <span class="k">current_timestamp</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">)</span>
+<span class="k">WHEN</span> <span class="k">NOT</span> <span class="n">matched</span> <span class="k">THEN</span> <span class="k">INSERT</span> <span class="k">VALUES</span> <span class="p">(</span>
+    <span class="n">updates</span><span class="p">.</span><span class="n">login</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">email</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idcentrocusto</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmcentrocusto</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idempresa</span><span class="p">,</span> 
+    <span class="n">updates</span><span class="p">.</span><span class="n">nmempresa</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">idunidade</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmunidade</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nucargahoraria</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmcargo</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">nmperfil</span><span class="p">,</span> <span class="n">updates</span><span class="p">.</span><span class="n">dtadmissao</span><span class="p">,</span> 
+    <span class="n">updates</span><span class="p">.</span><span class="n">dtdemissao</span><span class="p">,</span> <span class="k">current_timestamp</span><span class="p">,</span> <span class="k">FALSE</span><span class="p">);</span>
+</pre></div>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Hive merge query for History strategy&amp;url=/hive-merge-history-strategy.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=/hive-merge-history-strategy.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=/hive-merge-history-strategy.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+                <aside class="post-tags">
+<a href="/tag/hive.html">hive</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+        <section class="credits">
+
+
+          <span class="credits-theme">Theme <a href="https://github.com/arulrajnet/attila" rel="nofollow">Attila</a></span>
+          <span class="credits-software">Published with <a href="https://github.com/getpelican/pelican" rel="nofollow">Pelican</a></span>
+        </section>
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="/theme/js/script.js"></script>
+
+</body>
+</html>

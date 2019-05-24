@@ -6,7 +6,7 @@ Slug: flying-with-pelican-project
 Authors: Marcus Bittencourt
 Summary: Flying with pelican project
 
-# Flying with pelican project
+# Flying on pelican
 
 ### Install pelican 
 
