@@ -6,11 +6,11 @@ Slug: setting-up-big-data-env-centos
 Authors: Marcus Bittencourt
 Summary: Setting up big data environment on Centos 7
 
-This environment setup is desined for supports scaled big data process in organizations with BI demand and needs data lake insfrastructure
+This environment setup is desined for supports scaled big data process in organizations with BI demand and needs data lake insfrastructure in single node.
 
 (underconstruction)
 
-# Compiling Tez 0.9.2 for Hadoop 3.1.2
+# Building Tez 0.9.2 from source for Hadoop 3.1.2
 
 ### Utils
 
@@ -54,13 +54,7 @@ This environment setup is desined for supports scaled big data process in organi
 	$ node --version
 	v10.15.3
 
-### Yarn pkg 1.16.0
-
-	$ npm install --global yarn
-	$ yarn --version
-	1.16.0
-
-### NPM 6.9.1 
+### Npm 6.9.1 
 
 	$ npm install -g npm@next
 	$ npm --version
@@ -128,6 +122,14 @@ Try logout of your bash if npm previous version persist
 	[INFO] ------------------------------------------------------------------------
 	# before tez installation this directory can be deleted
 	$ rm /opt/tez-src
+
+### Yarn pkg 1.16.0
+
+if tez build fails with mvn problem '[ERROR] error An unexpected error occurred: "https://registry.yarnpkg.com/ember-cli-app-version/-/ember-cli-app-version-1.0.0.tgz: self signed certificate in certificate chain".' then is need install yarn specific version manually    
+
+	$ npm install --global yarn@0.21.3
+	$ yarn --version
+	v0.21.3
 
 # Install big data environment with hadoop 3.1.2 and tez 0.9.2
 
@@ -269,6 +271,11 @@ Try logout of your bash if npm previous version persist
 		</property>
 	</configuration>
 
+Test tez install using one of the functions of tez-test-<>.jar, example:
+	
+	:::bash
+	hadoop jar tez-test.0.9.2.jar orderedwordcount file.txt out.log
+
 # Install and configure hive 3.1.1 on tez 0.9.2
 
 ### Mysql 5.7.26 
@@ -311,3 +318,4 @@ Install and configure sqoop
 *References*
 
 1. https://tecadmin.net/upgrade-nodejs-via-npm/
+2. https://github.com/apache/tez/blob/master/BUILDING.txt

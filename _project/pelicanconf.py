@@ -26,10 +26,14 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('hnlaomie', 'https://hnlaomie.github.io/'))
 
 # Social widget
-SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/marcus-bittencourt-76a9a2b6/'),
-          ('Github', 'https://github.com/MarcusBittencourt'),)
+SOCIAL = (('linkedin', 'https://www.linkedin.com/in/marcus-bittencourt-76a9a2b6/'),
+          ('github', 'https://github.com/MarcusBittencourt'),
+          ('envelope', 'mailto:marcus.bittencourt.silva@gmail.com'),)
 
 DEFAULT_PAGINATION = 20
+
+THEME = 'attila-1.3'
+COLOR_SCHEME_CSS = 'tomorrow.css'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
